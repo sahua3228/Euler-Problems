@@ -4,35 +4,41 @@ What is the 10 001st prime number?*/
 
 public class Problem7 {
 
-	public static void main(String[] args) {
-		int npr=1;
-		int n=1;
-		while (npr<10001)
-		{
-			n=n+2;
-			if(isPrime(n))
-				npr++;
-		}
-  System.out.println(n);
+	public static boolean isprime(long n)
+	{
+		 int flag=1;
+		 for(long i=2;i<Math.sqrt(n);i++)
+		 {
+			 if(n%i==0)
+			 {
+				 flag=0;
+				 break;
+			 }
+		 }
+		if(flag==1)
+			return true;
+		else
+			return false;
+		
 	}
-static boolean isPrime(int n)
-{
-	if (n<=1)
-		return false;
-	else if(n==2)
-		return true;
-	else if (n%2==0)
-		return false;
-	else {
-		int a=3;
-		while(a*a<=n)
-		{
-			if(n%a==0)
-				return false;
-			a+=2;
-		}
-		return true;
-	}
-}
+     public static void main(String args[])
+     {
+    int count=0;
+    int i=2;
+    int pno=0;
+    while(count!=10001)
+    {
+    	if(isprime(i))
+    	{
+    		pno=i;
+    		count++;
+    	}
+      i++;
+    }
+    	 
+    	 System.out.println(pno);
+    	 
+     }
+	
 }
 //Output=104743
